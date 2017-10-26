@@ -34,17 +34,22 @@ public class DominoServiceImpl implements DominoService {
     }
 
     @Override
+    public DominoDto getWords(String word) {
+        return null;
+    }
+
+    @Override
     public Page<DominoEntry> getPage(Pageable page) {
         return dominoEntryRepository.findAll(page);
     }
 
-    @Override
-    DominoDto getWordsSaved(String word) {
-        DominoDto result = new DominoDto();
-        result.setWord(word);
-        DominoEntry dominoEntry = new DominoEntry();
-        dominoEntry.setWord(word);
-        dominoEntryRepository.save(dominoEntry);
-        return result;
-    }
+//    @Override
+//    DominoDto getWordsSaved(String word) {
+//        DominoDto result = new DominoDto();
+//        result.setWord(word);
+//        DominoEntry dominoEntry = new DominoEntry();
+//        dominoEntry.setWord(word);
+//        dominoEntryRepository.save(dominoEntry);
+//        return result;
+//    }
 }
