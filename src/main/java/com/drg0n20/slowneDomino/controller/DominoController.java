@@ -4,12 +4,14 @@ import com.drg0n20.slowneDomino.dto.DominoDto;
 import com.drg0n20.slowneDomino.model.DominoEntry;
 import com.drg0n20.slowneDomino.service.DominoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
@@ -17,7 +19,15 @@ import java.util.List;
 public class DominoController {
 
     @Autowired
+    ResourceLoader loader;
+
+    @Autowired
     private DominoService dominoService;
+
+    public String index() {
+        Resource resource = loader.getResource("classpath:/pantad.txt");
+        return  resource.getFilename();
+    }
 
     @GetMapping("/{word}")
     public DominoDto addedWords(@PathVariable String word){

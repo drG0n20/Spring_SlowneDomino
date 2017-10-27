@@ -1,10 +1,8 @@
 package com.drg0n20.slowneDomino.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,7 +14,9 @@ public class DominoEntry {
     private Long id;
 
     private String word;
-    private List<String> snake;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
     public Long getId() {
         return id;
@@ -34,11 +34,12 @@ public class DominoEntry {
         this.word = word;
     }
 
-    public List<String> getSnake() {
-        return snake;
+    public Date getDate() {
+        return date;
     }
 
-    public void setSnake(List<String> snake) {
-        this.snake = snake;
+    public void setDate(Date date) {
+        this.date = date;
     }
+
 }
