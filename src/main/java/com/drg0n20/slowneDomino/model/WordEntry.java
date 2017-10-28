@@ -3,10 +3,9 @@ package com.drg0n20.slowneDomino.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-public class DominoEntry {
+public class WordEntry {
 
 
     @Id
